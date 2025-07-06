@@ -78,7 +78,7 @@ Outputs are saved as Parquet files in the `output_mapping/` folder:
    - `all_pheno_hpo_snomed_mapping.parquet` — full mapping of HPO phenotype → SNOMED concepts
    - `all_disease_hpo_snomed_mapping.parquet` — full mapping of HPO disease → SNOMED concepts
 
-2. disease gene phenotype association, where disease and phenotype are mapped to SNOMED, only the maaping with score > 0.8 are kept:
+2. disease gene phenotype association, where disease and phenotype are mapped to SNOMED, only the maping with top 1 score >= 0.8 are kept:
    - `pheno_to_gene_snomed_mapping.parquet` — phenotype, gene and diseases associations in SNOMED space
    - `gene_to_pheno_snomed_mapping.parquet` —  phenotype, gene and diseases associations in SNOMED space
 ---
