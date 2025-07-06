@@ -7,6 +7,7 @@ This project implements a pipeline to translate disease–phenotype associations
 
 The result is a rich mapping between diseases, phenotypes, and SNOMED concepts for downstream analyses such as knowledge graph building, data integration, and clinical analytics.
 
+![alt text](image.png)
 ---
 ## 🔬 Use Cases
 - Integrate HPO's phenotypes and diseases into SNOMED using SapBERT embedding semantic search
@@ -18,8 +19,8 @@ The result is a rich mapping between diseases, phenotypes, and SNOMED concepts f
 - Load the HPO ontology (`hp.obo`) as a graph
 - Load HPO association files:
   - `phenotype.hpoa` — disease–phenotype associations
-  - `phenotype_to_genes.txt` — phenotype → gene mappings
-  - `genes_to_phenotype.txt` — gene → phenotype mappings
+  - `phenotype_to_genes.txt` — phenotype → gene → disease mappings
+  - `genes_to_phenotype.txt` — disease → gene → phenotype mappings
 - Load SNOMED CT data:
   - SNOMED concepts and terms
   - SNOMED semantic tags, e.g. top categories such as “finding”
@@ -73,11 +74,13 @@ The result is a rich mapping between diseases, phenotypes, and SNOMED concepts f
 
 Outputs are saved as Parquet files in the `output_mapping/` folder:
 
-- `all_pheno_hpo_snomed_mapping.parquet` — full mapping of HPO → SNOMED concepts
-- `all_disease_hpo_snomed_mapping.parquet` — mapping of disease names to SNOMED
-- `pheno_to_gene_snomed_mapping.parquet` — phenotype → gene associations in SNOMED space
-- `gene_to_pheno_snomed_mapping.parquet` — gene → phenotype associations in SNOMED space
+1. HPO diseases and phenotype mappings:  
+   - `all_pheno_hpo_snomed_mapping.parquet` — full mapping of HPO phenotype → SNOMED concepts
+   - `all_disease_hpo_snomed_mapping.parquet` — full mapping of HPO disease → SNOMED concepts
 
+2. disease gene phenotype association, where disease and phenotype are mapped to SNOMED, only the maaping with score > 0.8 are kept:
+   - `pheno_to_gene_snomed_mapping.parquet` — phenotype, gene and diseases associations in SNOMED space
+   - `gene_to_pheno_snomed_mapping.parquet` —  phenotype, gene and diseases associations in SNOMED space
 ---
 
 ## 💾 Input Files
