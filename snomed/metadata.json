@@ -1,0 +1,52 @@
+{
+    "connectivity": {
+        "source": "HUG-SNOMED",
+        "columns": [
+            "src.id",
+            "src.label",
+            "relation",
+            "dst.id",
+            "dst.label"
+        ],
+        "description": "relations between all concepts of type SNOMED-CT in HUG-SNOMED"
+    },
+    "concept_snomed_hug": {
+        "source": "HUG-SNOMED",
+        "columns": [
+            "id",
+            "label",
+            "concept_type",
+            "sem_tag",
+            "top_category"
+        ],
+        "description": "ID, FSN, semantic tag and top category of all concepts of type SNOMED-CT in HUG-SNOMED"
+    },
+    "released_version": {
+        "source": "Official SNOMED",
+        "columns": [
+            "id",
+            "term",
+            "term_type",
+            "status"
+        ],
+        "description": "ID, FSN, and synonyms of all concepts of type precoordination SNOMED-CT in official release"
+    },
+    "mapped_concepts": {
+        "source": "HUG-SNOMED",
+        "columns": [
+            "pointer",
+            "label",
+            "id",
+            "concept_type"
+        ],
+        "description": "ID, FSN and pointers of mapped concepts in HUG-SNOMED"
+    },
+    "expressions": {
+        "source": "snowstorm",
+        "columns": [
+            "id",
+            "expression"
+        ],
+        "description": "ID and expressions in snowstorm"
+    }
+}
